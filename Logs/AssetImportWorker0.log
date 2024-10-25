@@ -599,3 +599,4 @@ Received Import Request.
   path: Packages/com.unity.collab-proxy/package.json
   artifactKey: Guid(743fda8c4b219c8429fb5a77ede1c879) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Packages/com.unity.collab-proxy/package.json using Guid(743fda8c4b219c8429fb5a77ede1c879) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ada322d36f3e90e73bf6c46bb9d28c32') in 0.003429 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
