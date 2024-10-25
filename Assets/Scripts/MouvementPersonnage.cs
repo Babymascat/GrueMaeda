@@ -31,7 +31,7 @@ public class MouvementPersonnage : MonoBehaviour
     {
 
         /* Initialisation des variables de lancement */
-        vitesse = 0.01f;  // Initialisation de la vitesse
+        vitesse = 0.005f;  // Initialisation de la vitesse
         rb = GetComponent<Rigidbody>(); // Récupération du rigidbody du joueur
         Debug.Log(rb); // Sert a débugger un code pour voir si il est bien exécuté ici ont vérifie si le rigidbody est bien récupéré
 
@@ -68,11 +68,12 @@ public class MouvementPersonnage : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                vitesse = vitesse * 5;
+                vitesse = 0.01f;
                 transform.Translate(Vector3.back * vitesse);
             }
             else
             {
+                vitesse = 0.005f;
                 transform.Translate(Vector3.back * vitesse);
             }
         }
@@ -103,11 +104,12 @@ public class MouvementPersonnage : MonoBehaviour
             // Sprint
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                vitesse = vitesse * 5;
+                vitesse = 0.01f;
                 transform.Translate(Vector3.back * vitesse);
             }
             else
             {
+                vitesse = 0.005f;
                 transform.Translate(Vector3.back * vitesse);
             }
 
@@ -163,13 +165,13 @@ public class MouvementPersonnage : MonoBehaviour
         //  /                  SSSS   A   A   UUU     T                /
         // ===================================================================
         // Verifier si le joueur est au sol
-        if (Physics.Raycast(transform.position, Vector3.down, 1.1f))
+        if (Physics.Raycast(transform.position, Vector3.down, 0.4f))
         {
             // Mouvement de saut
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 // Ajout d'une force vers le haut avec un mode d'impulsion pour simuler le saut
-                rb.AddForce(Vector3.up * 5, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * 2, ForceMode.Impulse);
             }
         }
 
