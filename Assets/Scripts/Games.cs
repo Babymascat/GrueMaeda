@@ -18,16 +18,18 @@ public class Games : MonoBehaviour
 
     //Référence aux différents boutons
     public GameObject button3;
-    public GameObject button4;
     public GameObject button5;
 
     public GameObject CommandeGrue;
 
+    public GameObject CameraDessus;
+    public GameObject CameraStockage;
+
     private int buttonDisplay1;
-    private int buttonDisplay2;
 
 
     private MouvementPersonnage MouvementPersonnage; // Le script de mouvement du personnage
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +38,6 @@ public class Games : MonoBehaviour
         MouvementPersonnage = player.GetComponent<MouvementPersonnage>();
 
         buttonDisplay1 = 1;
-        buttonDisplay2 = 1;
 
         //On active le display1
         display1.SetActive(true);
@@ -47,10 +48,11 @@ public class Games : MonoBehaviour
         //On cache les boutons 2, 4 et 5
         button2.SetActive(false);
         button3.SetActive(false);
-        button4.SetActive(false);
         button5.SetActive(false);
 
         CommandeGrue.SetActive(false);
+        CameraDessus.SetActive(false);
+        CameraStockage.SetActive(false);
 
 
     }
@@ -64,6 +66,8 @@ public class Games : MonoBehaviour
             display1.SetActive(true);
             display2.SetActive(false);
             CommandeGrue.SetActive(false);
+            CameraDessus.SetActive(false);
+            CameraStockage.SetActive(false);
             //Si le joueur appuie sur entrée passe au bouton suivant
             if (Input.GetKeyDown(KeyCode.Return))
             {
@@ -76,14 +80,12 @@ public class Games : MonoBehaviour
                     button1.SetActive(true);
                     button2.SetActive(false);
                     button3.SetActive(false);
-                    button4.SetActive(false);
                     button5.SetActive(false);
                     break;
                 case 2:
                     button1.SetActive(false);
                     button2.SetActive(true);
                     button3.SetActive(false);
-                    button4.SetActive(false);
                     button5.SetActive(false);
                     break;
             }
@@ -93,36 +95,10 @@ public class Games : MonoBehaviour
             display1.SetActive(false);
             display2.SetActive(true);
             CommandeGrue.SetActive(true);
-            //Si le joueur appuie sur entrée passe au bouton suivant
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                buttonDisplay2++;
-            }
-
-            switch (buttonDisplay2)
-            {
-                case 1:
-                    button1.SetActive(false);
-                    button2.SetActive(false);
-                    button3.SetActive(true);
-                    button4.SetActive(false);
-                    button5.SetActive(false);
-                    break;
-                case 2:
-                    button1.SetActive(false);
-                    button2.SetActive(false);
-                    button3.SetActive(false);
-                    button4.SetActive(true);
-                    button5.SetActive(false);
-                    break;
-                case 3:
-                    button1.SetActive(false);
-                    button2.SetActive(false);
-                    button3.SetActive(false);
-                    button4.SetActive(false);
-                    button5.SetActive(true);
-                    break;
-            }
+            CameraDessus.SetActive(true);
+            CameraStockage.SetActive(true);
+            button1.SetActive(false);
+            button2.SetActive(false);
 
 
         }
