@@ -18,7 +18,6 @@ public class Games : MonoBehaviour
 
     //Référence aux différents boutons
     public GameObject button3;
-    public GameObject button5;
 
     public GameObject CommandeGrue;
 
@@ -48,7 +47,6 @@ public class Games : MonoBehaviour
         //On cache les boutons 2, 4 et 5
         button2.SetActive(false);
         button3.SetActive(false);
-        button5.SetActive(false);
 
         CommandeGrue.SetActive(false);
         CameraDessus.SetActive(false);
@@ -80,13 +78,11 @@ public class Games : MonoBehaviour
                     button1.SetActive(true);
                     button2.SetActive(false);
                     button3.SetActive(false);
-                    button5.SetActive(false);
                     break;
                 case 2:
                     button1.SetActive(false);
                     button2.SetActive(true);
                     button3.SetActive(false);
-                    button5.SetActive(false);
                     break;
             }
         }

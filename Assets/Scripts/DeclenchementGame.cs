@@ -16,6 +16,9 @@ public class DeclenchementGame : MonoBehaviour
     // Déclarations des variables
     public GameObject button4;
     public GameObject button3;
+    public GameObject button5;
+
+    public ArticulationBody articulationBodyMoufleBas; // Référence à l'ArticulationBody du MoufleBas
 
     private int counter = 1;
 
@@ -32,6 +35,7 @@ public class DeclenchementGame : MonoBehaviour
     void Start()
     {
         button4.SetActive(false);
+        button5.SetActive(false);
     }
 
 
@@ -47,15 +51,26 @@ public class DeclenchementGame : MonoBehaviour
     void Update()
     {
 
-        if (counter == 1)
+        ArticulationDrive articulationDriveMoufleBas = articulationBodyMoufleBas.xDrive;
+        if (articulationDriveMoufleBas.lowerLimit != 0)
         {
-            button3.SetActive(true);
+            button5.SetActive(true);
+            button3.SetActive(false);
             button4.SetActive(false);
         }
         else
         {
-            button3.SetActive(false);
-            button4.SetActive(true);
+            button5.SetActive(false);
+            if (counter == 1)
+            {
+                button3.SetActive(true);
+                button4.SetActive(false);
+            }
+            else
+            {
+                button3.SetActive(false);
+                button4.SetActive(true);
+            }
         }
 
     }
